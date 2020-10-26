@@ -1,11 +1,14 @@
 package application;
 
+import tabuleiro.Posicao;
+
 public class Programa {
 
 	public static void main(String[] args) {
+		
+		Posicao pos = new Posicao(3, 5);
+		System.out.println(pos);
 
-		System.out.println("Hello World");
-		System.out.println("testando a nova branch master");
 
 	}
 
