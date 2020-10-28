@@ -30,9 +30,19 @@ public class Partida {
 	}
 	
 	private void iniciaPartida(){
-		placeNewPiece('b', 6, new Torre(tabuleiro, Cor.WHITE));
-		placeNewPiece('e', 8, new Rei(tabuleiro, Cor.BLACK));
-		placeNewPiece('e', 1, new Rei(tabuleiro, Cor.WHITE));
+		placeNewPiece('c', 1, new Torre(tabuleiro, Cor.WHITE));
+        placeNewPiece('c', 2, new Torre(tabuleiro, Cor.WHITE));
+        placeNewPiece('d', 2, new Torre(tabuleiro, Cor.WHITE));
+        placeNewPiece('e', 2, new Torre(tabuleiro, Cor.WHITE));
+        placeNewPiece('e', 1, new Torre(tabuleiro, Cor.WHITE));
+        placeNewPiece('d', 1, new Rei(tabuleiro, Cor.WHITE));
+
+        placeNewPiece('c', 7, new Torre(tabuleiro, Cor.BLACK));
+        placeNewPiece('c', 8, new Torre(tabuleiro, Cor.BLACK));
+        placeNewPiece('d', 7, new Torre(tabuleiro, Cor.BLACK));
+        placeNewPiece('e', 7, new Torre(tabuleiro, Cor.BLACK));
+        placeNewPiece('e', 8, new Torre(tabuleiro, Cor.BLACK));
+        placeNewPiece('d', 8, new Rei(tabuleiro, Cor.BLACK));
 	}
 	
 }
