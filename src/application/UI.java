@@ -1,7 +1,11 @@
 package application;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 import xadrez.Cor;
 import xadrez.PecaXadrez;
+import xadrez.PosicaoNoXadrez;
 
 public class UI {
 
@@ -49,6 +53,18 @@ public class UI {
 	            }
 		}
 		System.out.print("");
+	}
+	
+	public static PosicaoNoXadrez lerPosicaoEscolhida( Scanner sc){
+		try{
+		String s = sc.nextLine();
+		char coluna = s.charAt(0);
+		int linha = Integer.parseInt(s.substring(1));
+		return new PosicaoNoXadrez(coluna, linha);
+		}
+		catch (RuntimeException e){
+			throw new InputMismatchException("Erro ao ler a posição do tabuleiro, valor invalido");
+		}
 	}
 
 }
