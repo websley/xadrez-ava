@@ -39,6 +39,9 @@ public class Partida {
 		if(!tabuleiro.verificaPeca(posicao)){
 			throw new ExecoesXadrez("Não a peças na posição selecionada");
 		}
+		if (!tabuleiro.peca(posicao).temPossibilidadeMover()) {
+			throw new ExecoesXadrez("Não existe movimentos possveis para a peça selecionada");
+		}
 	}
 	
 	private Peca makeMove(Posicao origem, Posicao destino){
