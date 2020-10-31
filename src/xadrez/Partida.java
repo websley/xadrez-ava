@@ -65,6 +65,12 @@ public class Partida {
 		tabuleiro.posisionaPeca(peca, new PosicaoNoXadrez(coluna, linha).toPosition());
 	}
 	
+	public boolean[][] possiveisMovimentos(PosicaoNoXadrez posicaoPeca){
+		Posicao posicao = posicaoPeca.toPosition();
+		validaPosicaoOrigem(posicao);
+		return tabuleiro.peca(posicao).possiveisMovimentos();
+	}
+	
 	private void iniciaPartida(){
 		placeNewPiece('c', 1, new Torre(tabuleiro, Cor.WHITE));
         placeNewPiece('c', 2, new Torre(tabuleiro, Cor.WHITE));
