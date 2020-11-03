@@ -8,11 +8,28 @@ import xadrez.pecas.Torre;
 
 public class Partida {
 	
+	private int turno;
+	private Cor jogadorAtual;
 	private Tabuleiro tabuleiro;
 	
 	public Partida(){
 		tabuleiro = new Tabuleiro(8,8);
+		turno = 1;
+		jogadorAtual = Cor.WHITE;
 		iniciaPartida();
+	}
+	
+	public void proximoTurno(){
+		turno++;
+		jogadorAtual= (jogadorAtual == Cor.WHITE) ? Cor.BLACK : Cor.WHITE;
+	}
+	
+	public int getTurno(){
+		return turno;
+	}
+	
+	public Cor getJogadorAtual(){
+		return jogadorAtual;
 	}
 
 	public PecaXadrez[][] getPecas(){
@@ -33,6 +50,7 @@ public class Partida {
 		validaPosicaoOrigem(origem);
 		validaPosicaoDestino(origem, destino);
 		Peca pecaCapturada = makeMove(origem, destino);
+		proximoTurno();
 		return (PecaXadrez)pecaCapturada;
 	}
 	
@@ -41,6 +59,9 @@ public class Partida {
 	private void validaPosicaoOrigem(Posicao posicao){
 		if(!tabuleiro.verificaPeca(posicao)){
 			throw new ExecoesXadrez("Não a peças na posição selecionada");
+		}
+		if(jogadorAtual != ((PecaXadrez)tabuleiro.peca(posicao)).getCor()){
+			throw new ExecoesXadrez("A peça escolhida não é sua");
 		}
 		if (!tabuleiro.peca(posicao).temPossibilidadeMover()) {
 			throw new ExecoesXadrez("Não existe movimentos possveis para a peça selecionada");
